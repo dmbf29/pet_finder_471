@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Pets</h1>
+  <div class="row">
+    <% @pets.each do |pet| %>
+      <div class="col-12 col-sm-4 my-1">
+        <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <h2><%= link_to pet.name, pet_path(pet) %></h2>
+            <p>
+              <% if pet.dead? %>
+                <i class="fas fa-skull-crossbones"></i>
+              <% else %>
+                <i class="fas fa-smile"></i>
+              <% end %>
+              Found <%= pet.found_days_ago %> days ago. <%= pet.species %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
